@@ -1,0 +1,29 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px 10px 10px;
+    width: 80vw;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    filter: opacity(0.9);
+    color: whitesmoke;
+}
+
+.launch-img {
+    width: 800px;
+    height: 600px;
+}
+
+.launch-success {
+    align-self: center;
+    text-transform: uppercase;
+}
+
+
+.mission-info{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-right: auto;
+    margin-left: 20px
+}

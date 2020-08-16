@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { gql, useQuery } from '@apollo/client';
+import LaunchList from './components/LaunchList/LaunchList';
+import LaunchDetails from './components/LaunchDetails/LaunchDetails';
+
+const LAST_LAUNCHES = gql`
+query {
+  launchesPast(limit: 10) {
+    mission_name
+    launch_date_local
+    links {
+      flickr_images
+    }
+    id
+    launch_success
+  }
+}
+`
 
 function App() {
+  const [launch, setLaunch] = useState<string | null>(null)
+  const result = useQuery(LAST_LAUNCHES)
+
+  if (result.loading) {
+    return <div>Loading ...</div>
+  }
+  const handleShowDetails = (id: string | null) => {
+    setLaunch(id)
+  }
+
+  const hideWhenLaunch = {display: launch? 'none': ''}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ERU SpaceX</h1>
+      {launch && <LaunchDetails handleShowDetails={handleShowDetails} id={launch} />}
+      <LaunchList style={hideWhenLaunch} handleShowDetails={handleShowDetails} launches={result.data.launchesPast} />
     </div>
   );
 }
