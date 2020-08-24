@@ -17,7 +17,7 @@ const client = new ApolloClient({
     },
   }),
   link: new HttpLink({
-    uri: 'http://api.spacex.land/graphql/'
+    uri: 'https://api.spacex.land/graphql/'
   })
 })
 
