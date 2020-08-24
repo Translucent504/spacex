@@ -28,12 +28,12 @@ type Props = {
 const LaunchDetails: React.FC<Props> = ({ id, handleShowDetails }) => {
     const result = useQuery(LAUNCH_QUERY, { variables: { id } })
     if (result.loading) {
-        return <div>Loading...</div>
+        return <h1 style={{color:'white', fontSize:'10rem', height:'100vw'}}>Loading...</h1>
     }
     return (
         <div className='launch-details-container'>
             <h1>{result.data.launch.mission_name}</h1>
-            <button onClick={() => handleShowDetails(null)}>Back</button>
+            <button className='back-button' onClick={() => handleShowDetails(null)}>Back</button>
             <div>
                 {result.data.launch.launch_year}
                 {result.data.launch.launch_success}
