@@ -7,13 +7,24 @@
     background-color: rgb(0, 0, 0);
     filter: opacity(0.9);
     color: whitesmoke;
+    box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.4);
+
+}
+
+.show-details-button {
+    font-size: 1.5rem;
+    color: white;
+    background: black;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 5px rgba(255, 255, 255, 0.4);
+    margin-top: 10px;
+
+
 }
 
 .launch-img {
     width: 50%;
 }
-
-
 
 .launch-success {
     align-self: center;

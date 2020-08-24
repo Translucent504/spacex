@@ -21,8 +21,8 @@ const Launch: React.FC<Props> = ({ launch, handleShowDetails }) => {
             <div className='mission-info'>
                 <span className='mission-name'>{launch.mission_name}</span>
                 <span className='launch-date'>Launch Date: {launch.launch_date_local}</span>
-                <button onClick={() => handleShowDetails(launch.id)}>Show Details</button>
-                <h2 className='launch-success'>{launch.launch_success? 'Success' : 'Fail'}</h2>
+                <button className='show-details-button' onClick={() => handleShowDetails(launch.id)}>Show Details</button>
+                <h2 style={{color:launch.launch_success? 'green': 'red'}} className='launch-success'>{launch.launch_success? 'Success' : 'Fail'}</h2>
             </div>
         </div>
     )
