@@ -6,4 +6,5 @@
 - Typescript
 - Tests
 - GraphQL + Apollo
+- Infinite Scroll
   
